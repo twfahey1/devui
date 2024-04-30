@@ -25,8 +25,16 @@ final class ActionsManager {
   /**
    * @todo Add method description.
    */
-  public function doSomething(): void {
-    // @todo Place your code here.
+  public function runDrushCexOnHost(): bool {
+    try {
+    // Execute a `fin drush cex -y` in the local shell.
+    $command = 'fin drush cex -y';
+    shell_exec($command);
+    return TRUE;
+    } catch (\Exception $e) {
+      return FALSE;
+    }
+
   }
 
 }
