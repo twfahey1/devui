@@ -1,0 +1,6 @@
+devui.settings:
+  title: DevUI settings
+  description: Administer settings for DevUI
+  parent: system.admin_config_devui
+  route_name: devui.settings
+  weight: 10

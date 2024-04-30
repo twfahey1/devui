@@ -2,6 +2,18 @@ block.settings.devui_tools:
   type: block_settings
   label: 'DevUI Tools block'
   mapping:
-    example:
-      type: string
-      label: Example
+    path_to_drush: 
+      type: text
+      label: 'Path to Drush'
+      description: 'Path to Drush executable used when calling drush via the shell'
+      default_value: '/var/www/vendor/bin/drush'
+# Schema for the configuration files of the DevUI module.
+devui.settings:
+  type: config_object
+  label: 'DevUI settings'
+  mapping:
+    path_to_drush: 
+      type: text
+      label: 'Path to Drush'
+      description: 'Path to Drush executable used when calling drush via the shell'
+      default_value: '/var/www/vendor/bin/drush'

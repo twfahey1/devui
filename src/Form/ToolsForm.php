@@ -6,6 +6,8 @@ namespace Drupal\devui\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\HtmlCommand;
 
 /**
  * Provides a DevUI form.
@@ -30,6 +32,20 @@ final class ToolsForm extends FormBase {
       '#required' => TRUE,
     ];
 
+    $form['export_config'] = [
+      '#type' => 'button',
+      '#value' => $this->t('Export Config'),
+      '#ajax' => [
+        'callback' => '::exportConfigCallback',
+        'wrapper' => 'export-config-status',
+      ],
+    ];
+
+    $form['export_config_status'] = [
+      '#type' => 'markup',
+      '#markup' => '<div id="export-config-status"></div>',
+    ];
+
     $form['actions'] = [
       '#type' => 'actions',
       'submit' => [
@@ -42,19 +58,27 @@ final class ToolsForm extends FormBase {
   }
 
   /**
+   * Ajax callback for exporting configuration.
+   */
+  public function exportConfigCallback(array &$form, FormStateInterface $form_state): AjaxResponse {
+    $response = new AjaxResponse();
+    $result = $this->actionsManager()->runDrushCexOnHost();
+
+    if ($result) {
+      $message = $this->t('Configuration export was successful.');
+    } else {
+      $message = $this->t('Configuration export failed.');
+    }
+
+    $response->addCommand(new HtmlCommand('#export-config-status', $message));
+    return $response;
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state): void {
-    // @todo Validate the form here.
-    // Example:
-    // @code
-    //   if (mb_strlen($form_state->getValue('message')) < 10) {
-    //     $form_state->setErrorByName(
-    //       'message',
-    //       $this->t('Message should be at least 10 characters.'),
-    //     );
-    //   }
-    // @endcode
+    // Validation logic as needed.
   }
 
   /**
@@ -63,6 +87,13 @@ final class ToolsForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state): void {
     $this->messenger()->addStatus($this->t('The message has been sent.'));
     $form_state->setRedirect('<front>');
+  }
+
+  /**
+   * Get the actions manager service.
+   */
+  private function actionsManager() {
+    return \Drupal::service('devui.actions_manager');
   }
 
 }

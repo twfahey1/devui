@@ -1,0 +1,16 @@
+{
+    "name": "twfahey1/devui",
+    "type": "drupal-module",
+    "description": "A Drupal module that provides a front end for advanced site management and development tasks.",
+    "keywords": ["Drupal", "module", "dx", "dev"],
+    "homepage": "https://github.com/twfahey1/devui",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Tyler Fahey",
+            "email": "twfahey1@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

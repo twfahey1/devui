@@ -81,11 +81,9 @@ final class ToolsBlock extends BlockBase implements ContainerFactoryPluginInterf
   /**
    * {@inheritdoc}
    */
-  public function build(): array {
-    $build['content'] = [
-      '#markup' => $this->t('It works!'),
-    ];
-    return $build;
+  public function build() {
+    $form = \Drupal::formBuilder()->getForm('Drupal\devui\Form\ToolsForm');
+    return $form;
   }
 
   /**

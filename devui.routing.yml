@@ -5,3 +5,11 @@ devui.tools:
     _form: 'Drupal\devui\Form\ToolsForm'
   requirements:
     _permission: 'access devui tools'
+
+devui.settings:
+  path: '/admin/config/devui/settings'
+  defaults:
+    _title: 'DevUI settings'
+    _form: 'Drupal\devui\Form\SettingsForm'
+  requirements:
+    _permission: 'administer devui'

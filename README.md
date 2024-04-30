@@ -1,16 +1,14 @@
 ## INTRODUCTION
 
-The DevUI module is a DESCRIBE_THE_MODULE_HERE.
+A Drupal module that provides a front end for advanced site management and development tasks.
 
 The primary use case for this module is:
 
-- Use case #1
-- Use case #2
-- Use case #3
+- Developers working within the UI who need to rapidly perform tasks like config exports, git commits of config exports, database imports, etc.
 
 ## REQUIREMENTS
 
-DESCRIBE_MODULE_DEPENDENCIES_HERE
+- This is imagined as a local only tool, not something that should be enabled in production.
 
 ## INSTALLATION
 
@@ -18,9 +16,11 @@ Install as you would normally install a contributed Drupal module.
 See: https://www.drupal.org/node/895232 for further information.
 
 ## CONFIGURATION
-- Configuration step #1
-- Configuration step #2
-- Configuration step #3
+- Configure path to drush on `/admin/config/devui/settings`
+- Alternatively, have it in your `settings.local.php`:
+```
+$settings['devui.settings']['path_to_drush'] = '/var/www/vendor/bin/drush';
+```
 
 ## MAINTAINERS
 
