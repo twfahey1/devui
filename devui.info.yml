@@ -1,0 +1,5 @@
+name: 'DevUI'
+type: module
+description: 'Provides a front end for advanced site management and development tasks.'
+package: Development
+core_version_requirement: ^10 || ^11
