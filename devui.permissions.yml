@@ -1,0 +1,4 @@
+access devui tools:
+  title: 'Administer devui configuration'
+  description: 'Provides access to the DevUI tools.'
+  restrict access: true

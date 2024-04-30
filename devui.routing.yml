@@ -1,0 +1,7 @@
+devui.tools:
+  path: '/devui/tools'
+  defaults:
+    _title: 'Tools'
+    _form: 'Drupal\devui\Form\ToolsForm'
+  requirements:
+    _permission: 'access devui tools'

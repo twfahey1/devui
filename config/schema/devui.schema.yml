@@ -1,0 +1,7 @@
+block.settings.devui_tools:
+  type: block_settings
+  label: 'DevUI Tools block'
+  mapping:
+    example:
+      type: string
+      label: Example
