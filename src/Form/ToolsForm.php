@@ -25,13 +25,6 @@ final class ToolsForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state): array {
-
-    $form['message'] = [
-      '#type' => 'textarea',
-      '#title' => $this->t('Message'),
-      '#required' => TRUE,
-    ];
-
     $form['export_config'] = [
       '#type' => 'button',
       '#value' => $this->t('Export Config'),
@@ -44,14 +37,6 @@ final class ToolsForm extends FormBase {
     $form['export_config_status'] = [
       '#type' => 'markup',
       '#markup' => '<div id="export-config-status"></div>',
-    ];
-
-    $form['actions'] = [
-      '#type' => 'actions',
-      'submit' => [
-        '#type' => 'submit',
-        '#value' => $this->t('Send'),
-      ],
     ];
 
     return $form;
